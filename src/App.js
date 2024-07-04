@@ -29,7 +29,7 @@ class App extends Component {
 
   refreshList = () => {
     axios
-      .get("http://127.0.0.1:8000/api/tasks/")
+      .get("https://backend-full-project-07t4.onrender.com/api/tasks/")
       .then(res => this.setState({ taskList: res.data }))
       .catch(err => console.log(err));
   }
@@ -105,18 +105,18 @@ class App extends Component {
     this.toggle();
     if (item.id) {
       axios
-        .put(`http://127.0.0.1:8000/api/tasks/${item.id}/`, item)
+        .put(`https://backend-full-project-07t4.onrender.com/api/tasks/${item.id}/`, item)
         .then((res) => this.refreshList());
       return;
     }
     axios
-      .post("http://127.0.0.1:8000/api/tasks/", item)
+      .post("https://backend-full-project-07t4.onrender.com/api/tasks/", item)
       .then((res) => this.refreshList());
   };
 
   handleDelete = (item) => {
     axios
-      .delete(`http://127.0.0.1:8000/api/tasks/${item.id}/`)
+      .delete(`https://backend-full-project-07t4.onrender.com/api/tasks/${item.id}/`)
       .then((res) => this.refreshList());
   };
 
